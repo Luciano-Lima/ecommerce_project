@@ -1,0 +1,201 @@
+/* Main style */
+body {
+    font-family: 'Lato', Arial, sans-serif;
+    background: #fff;
+    color: #333;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    margin: 0; 
+}
+    
+.bg-light {
+    background-color: #dee2e6!important;
+}
+
+.messages {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Navbar & icons*/
+a.navbar-brand img {
+    width: 50px;
+    height: 50px;
+}
+
+.logo-text {
+    font-family: cursive;
+}
+
+.nav-categ {
+    font-weight: 800;
+    font-size: 1rem;
+    font-family: monospace;
+    text-transform: capitalize;
+    border-right: 1px ridge;
+    border-color: azure;
+}
+
+.nav-categ:hover {
+    background: #c2fbff;
+}
+
+.icon-nav-description {
+    display:block;
+}
+
+.rounded-circle {
+    background-color: #ff000f;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 9px;
+    padding-left: 5px;
+}
+
+.page-item.active .page-link {
+    background-color: #71e2f0;
+    border-color: #71e2f0; 
+}
+
+.page-link {
+    background-color: #f1f1f1;
+}
+
+/* User profile page */
+.user-profile {
+    margin: 50px;
+}
+    
+.user-profile-sigout-space {
+    margin-left: 6px;
+}
+    
+.d-inline-block {
+    margin-right: 10px;
+}  
+
+#desktop-header-search {
+    margin-top: 40px; 
+}
+
+.card-account-details {
+    width: 14rem;
+    float: left;
+    margin-left: 3rem;
+}
+    
+/* Input and buttons */
+input[type="number"], input[type="text"] {
+    height: 35px;
+}
+
+.newsletter-email #div_id_email input[type="email"] {
+    height: 35px;
+}
+
+#div_id_email label {
+    display: none;
+}
+
+button[type="submit"] {
+    margin-left: -50px;
+    height: 35px;
+    width: 50px;
+    background: #71e2f0;
+    color: white;
+    border: 0;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+button[type="submit"].test {
+    position: absolute;
+    margin-left: 25%;
+    top: 0;
+    padding: 2px;
+}
+  
+.btn-edit-cart {
+    display: contents; 
+}
+
+/* general styling login/register/payment/return shopping buttons */
+button[type="submit"].general-style-btn {
+    background-color: #2288aa;
+    width:50%;
+}
+   
+button[type="button"] {
+    background-color: #2288aa;
+}
+
+.btn-success:hover {
+    background-color: #2388aa;
+}    
+    
+
+/* remove paginator focus */
+.page-link:focus {
+    z-index: 2;
+    outline: 0;
+    box-shadow: none;
+}
+
+/* Search message  */
+.no-results {
+    color: #333333;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.card {
+    border: none;
+}
+
+/* Cart page */
+.cart-quantity {
+    color: #fff;
+    font-size: 12px;
+    margin-left: 3px;
+    font-weight: 800;
+}
+    
+/* Stripe Checkout  */
+ #credit-card-errors {
+    display: none;
+} 
+
+/* Social media */
+.soc-media-icons {
+    color:#2388aa;
+}
+
+/* Newsletter */
+.form-inline .form-group label {
+    display:none;
+}
+
+button[type="button"].newsletter-return-home {
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 50px;
+}
+
+/* Media queries */
+@media only screen and (max-width: 600px) {
+    
+    .hide-mobile {
+        display: none;
+    }
+    .card-account-details {
+        width: 0;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+
+    button[type="submit"].test {
+        margin-left: 20%;
+    }
+}
