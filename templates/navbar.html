@@ -21,14 +21,14 @@
             </li>
                     {% if number_of_items > 0 %}
             <li class="nav-item text-center">
-                <a class="nav-link" href="% url 'view_cart' %">
+                <a class="nav-link" href="{% url 'cart' %}">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-quantity rounded-circle icon-nav-description">{{ number_of_items }}</span>
                     <span class="icon-nav-description">Trolley</span>
                 </a>
                     <!-- % else % -->
             <li class="nav-item text-center">
-                <a class="nav-link" href="% url 'view_cart' %">
+                <a class="nav-link" href="{% url 'cart' %}">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="icon-nav-description">Trolley</span>
                 </a>
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="nav-item text-center">
-                <a class="nav-link" href="% url 'view_cart' %">
+                <a class="nav-link" href="{% url 'cart' %}">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="icon-nav-description">Trolley</span>
                 </a>
@@ -58,8 +58,6 @@
         </ul>
     </div>       
 </nav>
-
-
 <!-- Navegation menu for categories  -->
 <nav class="navbar navbar-expand navbar-light bg-light justify-content-center ">
     <ul class="navbar-nav text-center">
