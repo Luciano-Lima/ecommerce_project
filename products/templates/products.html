@@ -10,12 +10,12 @@
             <div class="card text-center">
                 <img class="card-img-top" src="{{ product.image.url }}" alt="produto image">
                 <span><i class="fas fa-pound-sign m-3">{{ product.price }}</i></span>
-                <form class="form-inline justify-content-center" method="POST" action="{% url 'add_to_cart' product.id %}}">
+                <form class="form-inline justify-content-center" method="POST" action="% url 'add_to_cart' product.id %">
                     {% csrf_token %}
                     <input class="form-control form-control w-75" name="quantity" type="number" min="1" max="10" placeholder="Quantity">
                     <button class="btn btn-md btn-success text-white" type="submit"><i class="fas fa-cart-arrow-down"></i></button>
                 </form>
-                <a href="{% url 'home_page' %}">
+                <a href="{% url 'home' %}">
                     <button type="button" class="cont-shop btn btn-sm btn-success text-white mt-3 w-100 "><strong>Continue Shopping</strong></button>    
                 </a>
             </div>
