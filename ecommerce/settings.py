@@ -17,6 +17,13 @@ from pathlib import Path
 if path.exists('env.py'):
     import env
 
+#Setting custom messages tags displayed to cart view
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
