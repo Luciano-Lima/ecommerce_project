@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load bootstrap5 %}
 
 <!-- block head_js including strip published key goes here -->
 
@@ -67,11 +67,11 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <h4 class="text-center">Your Details</h4>
-                {{ order_form  }}
+                {{ bootstrap_form order_form  }}
             </div>
             <div class="col-md-4">
                 <h4 class="text-center">Card Details</h4>
-                {{ payment_form }}    
+                {{ bootstrap_form payment_form }}    
             </div>
             <button class="btn btn-success text-center general-style-btn m-4" id="submit_payment_btn" name="commit" type="submit"><strong>Make Payment</strong></button>
         </div>
