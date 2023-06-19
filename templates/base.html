@@ -27,7 +27,6 @@
     <header>
         <!-- Dynamically generates navegation menu -->
         {% include 'navbar.html' %}
-
         <!-- Diplays a message to the user -->
         {% if messages %}
         <div class="container">
@@ -39,15 +38,11 @@
                 {% endfor %}
             </div>
         </div>
-        {% endif %}
-        
-        </header>
-                
-                
-    
+        {% endif %} 
+    </header>
     <!-- Dynamically generates search form -->   
     {% include 'search.html' %}
-
+    
     {% block content %}{% endblock %}
 
     <!-- Dynamically generates paginator -->   
