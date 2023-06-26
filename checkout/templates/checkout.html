@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bootstrap5 %}
+{% load crispy_forms_tags %}
 
 <!-- block head_js including strip published key goes here -->
 
@@ -21,7 +21,7 @@
                 <p class="alert alert-danger badge justify-content-center ">Item removed from cart</p>
                 {% endif %} 
                 <div class="form-inline justify-content-center">
-                    <form class="btn-edit-cart" method="POST" action="{% url 'update_cart' item.product_id %}">
+                    <form class="btn-edit-cart" method="POST" action="{% url 'update_cart' item.id %}">
                         {% csrf_token %}
                         <input class="form-control form-control-sm w-50" name="quantity" type="number" min="1" max="10" placeholder="New Quantity">
                         <button class="btn btn-success edit-cart-btn" type="submit"><i class="fas fa-cart-arrow-down"></i></button>
@@ -29,7 +29,7 @@
                     </form>
                 
                     <div class="btn-edit-cart">
-                        <form class="" method="POST" action="{% url 'delete_cart' item.product_id %}">
+                        <form class="" method="POST" action="{% url 'delete_cart' item.id %}">
                         {% csrf_token %}
                         <button class="btn btn-success delete-cart-btn ml-2" type="submit"><i class="fas fa-trash-alt"></i></button>
                         </form>   
@@ -67,11 +67,11 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <h4 class="text-center">Your Details</h4>
-                {{ bootstrap_form order_form  }}
+                {{ order_form|crispy }}
             </div>
             <div class="col-md-4">
                 <h4 class="text-center">Card Details</h4>
-                {{ bootstrap_form payment_form }}    
+                {{ payment_form|crispy }} 
             </div>
             <button class="btn btn-success text-center general-style-btn m-4" id="submit_payment_btn" name="commit" type="submit"><strong>Make Payment</strong></button>
         </div>
