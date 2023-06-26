@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'search',
     'checkout',
     'users',
+    'newsletter',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
