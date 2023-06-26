@@ -22,8 +22,8 @@ def checkout(request):
             # request the items in the card
             cart = request.session.get('cart', {})
             total = 0
-            for product.id, quantity in cart.items():
-                product = get_object_or_404(Products, pk=product.id)
+            for id, quantity in cart.items():
+                product = get_object_or_404(Products, pk=id)
                 total += quantity * product.price
                 product_ordered = ProductOrdered(order = order, product = product, quantity = quantity)
                 product_ordered.save()
