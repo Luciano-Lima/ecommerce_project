@@ -22,8 +22,8 @@ def checkout(request):
             # request the items in the card
             cart = request.session.get('cart', {})
             total = 0
-            for id, quantity in cart.items():
-                product = get_object_or_404(Product, pk=id)
+            for product.id, quantity in cart.items():
+                product = get_object_or_404(Products, pk=product.id)
                 total += quantity * product.price
                 product_ordered = ProductOrdered(order = order, product = product, quantity = quantity)
                 product_ordered.save()
@@ -41,7 +41,7 @@ def checkout(request):
             if costumer.paid:
                 messages.success(request, "Thanks for your payment!")
                 request.session['cart'] = {}
-                return redirect(reverse('index'))
+                return redirect(reverse('home'))
             else:
                 messages.error(request, "Please check your details and try again.")
         else:
