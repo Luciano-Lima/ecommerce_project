@@ -28,6 +28,7 @@ urlpatterns = [
     path('', include('search.urls')),
     path('', include('checkout.urls')),
     path('', include('users.urls')),
+    path('', include('newsletter.urls')),
     path('', categories, name='categories'),
 ]
 
