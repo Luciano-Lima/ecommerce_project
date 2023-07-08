@@ -85,23 +85,12 @@ a.navbar-brand img {
 }
 
 /* Input and buttons */
-input[type='number'],
-input[type='text'] {
+input[type='number'] {
 	height: 35px;
 }
 
-/* .newsletter-email #div_id_email input[type='email'] {
-	height: 35px;
-	max-width: 90%;
-} */
-
-/* #div_id_email label {
-	display: none;
-} */
-
 button[type='submit'] {
 	margin-left: -50px;
-	height: 35px;
 	width: 50px;
 	background: #71e2f0;
 	color: white;
@@ -169,6 +158,14 @@ button[type='button'] {
 /* Social media */
 .soc-media-icons {
 	color: #2388aa;
+}
+
+.fas {
+	font-size: 20px;
+}
+
+.fa-search {
+	font-size: 42px;
 }
 
 /* Newsletter */
