@@ -1,18 +1,39 @@
-{% extends 'base.html' %} 
-{% load bootstrap5 %}
-{% block page_title %}Login{% endblock %} 
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}{{ user }}'s Profile{% endblock %} 
+
 
 {% block content %}
+<p class="user-profile">Welcome <strong>{{ user.username }}!
+    <span class="user-profile-sigout-space">|</span></strong> <a href="{% url 'logout' %}"> Sign out</a>
+</p>
 <div class="container">
-    <div class="row m-5">
-        <div class="class col-md-6 mx-auto">
+    <div class="row mx-auto">
+        <div class="col-md-6">
+           <div class="card card-account-details">
+               <div class="card-header">
+                   Account Details
+               </div>
+               <ul class="list-group list-group-flush">
+                   <li class="list-group-item">{{ user.username }}</li>
+                   <li class="list-group-item">{{ user.profile.address }}</li>
+                   <li class="list-group-item">{{ user.profile.city }}</li>
+                   <li class="list-group-item">{{ user.profile.country }}</li>
+               </ul>
+            </div> 
+        </div>
+        <div class="col-md-6 mb-5">
+            <!-- Update user profile de details -->
+            <h1 class="text-center">Updated your profile details</h1>
             <form method="POST">
                 {% csrf_token %}
-                {{ login_form | as_bootstrap }}
-                <button type="submit" class="btn btn-outline-info general-style-btn w-100 ml-0">Submit</button>
-                <p class="text-muted m-3">Forgot you Password?<a href="{% url 'password_reset' %}"> Reset password:</a></p>
+                {{ user_prof_form | crispy }}
+                
+                {{ prof_form | crispy }}
+                <button type="submit" class="btn btn-outline-info general-style-btn w-100 ml-0">Update your
+                    account</button>
             </form>
-
         </div>
     </div>
 </div>

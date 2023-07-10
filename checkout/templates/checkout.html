@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bootstrap_tags %}
+{% load crispy_forms_tags %}
 
 {% block head_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
@@ -75,11 +75,11 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <h4 class="text-center">Your Details</h4>
-                {{ order_form | as_bootstrap }}
+                {{ order_form | crispy}}
             </div>
             <div class="col-md-4">
                 <h4 class="text-center">Card Details</h4>
-                {{ payment_form | as_bootstrap }}    
+                {{ payment_form | crispy }}    
             </div>
             <button class="btn btn-success text-center general-style-btn m-4" id="submit_payment_btn" name="commit" type="submit"><strong>Make Payment</strong></button>
         </div>
