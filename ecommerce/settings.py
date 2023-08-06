@@ -39,9 +39,9 @@ STRIPE_SECRET = os.environ.get('STRIPE_SECRET')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['ecommerce-new-application-0a752cc301d4.herokuapp.com']
+ALLOWED_HOSTS = ['ecommerce-new-application-0a752cc301d4.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -177,4 +177,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # #Reset email 
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+# EMAIL_BACK END = "django.core.mail.backends.filebased.EmailBackend"
