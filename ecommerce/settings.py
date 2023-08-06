@@ -39,7 +39,7 @@ STRIPE_SECRET = os.environ.get('STRIPE_SECRET')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['ecommerce-new-application-0a752cc301d4.herokuapp.com','127.0.0.1']
 
