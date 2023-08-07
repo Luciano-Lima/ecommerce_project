@@ -162,22 +162,20 @@ USE_TZ = True
 
 MEDIAFILES_LOCATION = 'media'
 
-STATIC_URL = '/static/'
+# Static files configuration
+# STATIC_URL = '/static/'
 # STATIC_ROOT = [os.path.join(BASE_DIR, 'media')]
-STATICFILES =  [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS =  [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
 
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
 STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
@@ -190,4 +188,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # #Reset email 
-# EMAIL_BACK END = "django.core.mail.backends.filebased.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
