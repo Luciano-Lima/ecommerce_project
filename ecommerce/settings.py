@@ -41,7 +41,7 @@ STRIPE_SECRET = os.environ.get('STRIPE_SECRET')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['*','.herokuapp.com']
 
 
 # Application definition
