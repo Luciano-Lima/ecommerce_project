@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
-from os import path 
+from os import path
 import dj_database_url
 from pathlib import Path
 
@@ -39,9 +39,9 @@ STRIPE_SECRET = os.environ.get('STRIPE_SECRET')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ecommerce-new-application-0a752cc301d4.herokuapp.com/', '127.0.0.1', 'http://127.0.0.1:8000/']
 
 
 # Application definition
@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'search',
     'checkout',
     'users',
+    'storages',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
@@ -103,27 +104,29 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+#Swapping for testing only
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Supabase Database settings -  https://app.supabase.com
 # DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'), 
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'), 
-        'PORT': os.environ.get('DB_PORT'),
-    }
-}
+
+#this is the database being used
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('DB_NAME'),
+#         'USER': os.environ.get('DB_USER'),
+#         'PASSWORD': os.environ.get('DB_PASSWORD'),
+#         'HOST': os.environ.get('DB_HOST'),
+#         'PORT': os.environ.get('DB_PORT'),
+#     }
+# }
 
 
 # Password validation
@@ -163,21 +166,32 @@ USE_TZ = True
 MEDIAFILES_LOCATION = 'media'
 
 # Static files configuration
-STATIC_URL =  'static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
-STATIC_ROOT = os.path.join(BASE_DIR / 'staticfiles')
-STATICFILES_DIRS = os.path.join(BASE_DIR / 'static/'),
+STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
 MEDIA_URL = '/media/'
+if DEBUG:
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
 
-STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+AWS_S3_FILE_OVERWRITE = False
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# STORAGES = {
+#     "default":{ "BACKEND": "storages.backends.s3boto3.S3Boto3Storage"},
+#     # "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"}
+# }
+
+
+# #AWS Credentials
+AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
+AWS_PASSWORD = os.environ.get('AWS_PASSWORD')
+AWS_BUCKET_NAME = os.environ.get('AWS_BUCKET_NAME')
+
+AWS_S3_REGION_NAME = 'eu-west-2'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -185,5 +199,5 @@ STORAGES = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# #Reset email 
+# #Reset email
 # EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
